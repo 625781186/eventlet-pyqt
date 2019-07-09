@@ -109,3 +109,21 @@ The GreenletGroup manages greenlets. It has several methods you may like.
 
   * `killall()`
     Kill all managed greenlets.
+    
+### How to use pyinstaller package your project:
+- 1. copy `hgoldfish` folder to your project && import modules to your main  script .
+
+```
+# Because eventlet used dynamic import, pyinstaller could not find it.
+from eventlet.hubs import epolls, kqueue, poll, selects
+import eventlet
+# I'm not install this package . I copy this module to my project.
+import hgoldfish
+from hgoldfish.utils import eventlet
+```
+
+![image.png](https://i.loli.net/2019/07/09/5d246faee709328092.png)
+
+- 2. solve `dns` module error:
+
+[pack with dynamically module](https://github.com/pyinstaller/pyinstaller/issues/2572#issuecomment-485849343)
